@@ -1,0 +1,17 @@
+Simple class for Retrieving, Updating and Removing Parameters on Axis Devices.
+
+Get Parameters:
+param1 = AxisParameter('Event')
+param2 = AxisParameter('Properties')
+
+			IP	      User   Pass   VapixVersion(None for auto)
+ap = AxisParameterClass("10.13.24.13","root","pass",None)
+paramList = ap.getParameters([param1,param2])
+
+for x in paramList:
+	print x.name + " = " + str(x.value)
+	#If parameter isn't found. value returns None
+
+ap.removeParameters([param1]) #remove the events.
+
+More info to come
