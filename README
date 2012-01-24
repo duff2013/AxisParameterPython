@@ -1,10 +1,13 @@
 Simple class for Retrieving, Updating and Removing Parameters on Axis Devices.
 
-Get Parameters:
+#import
+from AxisParameterClass import *
+
+#Get Parameters:
 param1 = AxisParameter('Event')
 param2 = AxisParameter('Properties')
 
-			IP	      User   Pass   VapixVersion(None for auto)
+#			IP	      User   Pass   VapixVersion(None for auto)
 ap = AxisParameterClass("10.13.24.13","root","pass",None)
 paramList = ap.getParameters([param1,param2])
 
