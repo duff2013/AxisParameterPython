@@ -91,7 +91,7 @@ class AxisParameterClass:
             		parameters.append(parameterclass)
         return parameters
 
-
+    #TODO: Fix this function to fully work. Currently it works on parameters that is ok to update, but not on read only/non existent ones.
     def updateParameters(self,params):
     	if self.vapixversion == None:
     		vapixversion = self.determineVapixVersion()
