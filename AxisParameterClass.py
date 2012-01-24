@@ -80,17 +80,15 @@ class AxisParameterClass:
         #Parameters will come as Single lines. If parameter isn't found Line will start with #Error - description.
         parameters = []
         for lines in req['data'].replace("root.","").split('\n'):
-            if lines.startswith('# Error') != True:
-                parameter = lines.split("=")
-                if parameter != ['']: #Last row is always empty
-                	parameterclass = AxisParameter(parameter[0],parameter[1])
-
+            if lines.startswith('# Error') != True and lines != "":
+	           	parameterclass = AxisParameter(parameter[0],parameter[1])
+           		parameters.append(parameterclass)
             else:
                 #Parameter didn't exist. Add it to class, set value to None and enter the error message in the class
                 if lines.startswith('# Error: Error -1 getting param in group '):
                 	lines = lines.replace('# Error: Error -1 getting param in group ','')
                 	parameterclass = AxisParameter(lines[1:-1],None) #Should contain the parameter
-            parameters.append(parameterclass)
+            		parameters.append(parameterclass)
         return parameters
 
 
