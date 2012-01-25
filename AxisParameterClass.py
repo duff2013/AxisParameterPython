@@ -81,6 +81,7 @@ class AxisParameterClass:
         parameters = []
         for lines in req['data'].replace("root.","").split('\n'):
             if lines.startswith('# Error') != True and lines != "":
+            		parameter = lines.split("=")
 	           	parameterclass = AxisParameter(parameter[0],parameter[1])
            		parameters.append(parameterclass)
             else:
